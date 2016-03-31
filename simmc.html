@@ -1,0 +1,151 @@
+<head>
+	<title>Should I Move my Car?</title>
+</head>
+
+<body style="background-color: #ffffff;">
+<div class="container">
+<!--<div class="row">
+	<div class="page-header">
+		<h1 style="text-align: center">Should I Move My Car?</h1>
+	</div>
+</div> -->
+
+{{#if noGames fbgames bbgames}}
+{{> bbgame}}
+
+{{else}}
+{{> nogame}}
+
+{{/if}}
+
+
+
+	<!--<div class="col-xs-12">
+		<div class="row">
+			<h1 style="text-align: center; color: black; ">Yes</h1>
+		</div>
+	</div>	
+	<div class="row">
+		<div class=col-xs-12>
+			<h2 style="color: black; text-align: center;">Vehicles in lot 4, 6, 7a, 9 and 11 must be moved by 4PM</h2>
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 ">
+				<button class="btn btn-block btn-default">Remind me</button>
+			</div>
+		</div>
+		<div class="row"><ul>{{#each bbgames}} {{> bbgame}} {{/each}}</ul></div>
+		<div class="row center-block" >
+				<div class="col-xs-4 " >	
+					<img class="img-responsive center-block" src="/images/maryland.jpg" /><p class="text-center lead"> Maryland</p>
+				</div>
+				<div class="col-xs-4 center-block text-center" >
+					<h1 class="text-center pagination-centered lead">VS. </h1> 
+				</div>
+				<div class="col-xs-4 text-center" >
+					<img class="img-responsive center-block" src="/images/wisconsin.svg.png" /><p class="lead">Wisconsin</p>
+				</div>
+			</div>
+		<div class="row">
+			<h3 style="color: black; text-align: center;">Tip-off at 7PM</h3>
+		</div> -->
+	{{ >checkDate }}
+
+	<div class="row">
+		<div class="col-lg-12 ">
+			<div class="center-block">
+				<h6 class="text-center">Information on this website may be out of date, for more accurate parking information visit <a href="" onclick="window.open('http://dots.umd.edu', '_system');">dots.umd.edu</a> or follow <a href="" onclick="window.open('http://twitter.com/DOTS_UMD', '_system');">@DOTS_UMD</a>.</h6>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+<!--<template name="hello">
+<button>Click Me</button>
+<p>You've pressed the button {{counter}} times.</p>
+</template>
+-->
+<template name="bbgame">
+	<div class="col-xs-12">
+		<div class="row">
+			<h1 style="text-align: center; color: black; ">Yes</h1>
+		</div>
+		<div class="row">	
+			<h4 class="text-center"> {{{checkingDate}}}</h4>
+		</div>
+	</div>	
+	<div class="row">
+		<div class=col-xs-12>
+			{{#if conference bbgames}}
+			<p class="lead" style="color: black;<text-align: center;">Those parked in lots 4, 6, 7a, 9, 11 MUST move their vehicles by {{{confGame bbgames}}}. Vehicles that are not relocated will be cited and relocated. Parking will be available to registrants in Lot 1.</p>
+			{{else}}
+			<p class="lead" style="color: black; text-align: center;">Those parked in lots 4, 6, 7a, 9, 11 before {{{confGame bbgames}}} are NOT required to move their vehicles. Registrants in these lots attempting to park within four hours before until one hour after tipoff will be redirected to Lot 1.</p>
+			{{/if}}
+			
+		</div>
+	</div>
+		{{#each bbgames}} 
+		<!-- <div class="row"><li><ul>{{#each bbgames}} {{{summary}}} {{/each}}</ul></li></div> -->
+		<div class="row center-block row-eq-height" >
+				<div class="col-xs-4 " >	
+					<img class="img-responsive center-block" src="/images/maryland.jpg" /> <!-- <p class="text-center lead"> Maryland</p>-->
+				</div>
+				<div class="col-xs-4 center-block text-center" style="margin: auto;" >
+					<h1 class="text-center pagination-centered ">VS. </h1> 
+				</div>
+				<div class="col-xs-4 text-center" >
+					<img class="img-responsive center-block" src="/images/JPEG/{{vsteam}}.jpg" /><!-- <p class="lead">{{{vsteam}}}</p> -->
+				</div>
+			</div>
+		<div class="row">
+			<h5 style="color: black; text-align: center;">{{{umdteam}}} vs. {{{vsteam}}}</h5>
+		</div>
+		<div class="row">
+			<h6 style="color: black; text-align: center;">Tip-off at {{{tip_off}}}</h6>
+		</div>
+		{{/each}}
+		<!--<div class="row">
+			<div class="col-xs-4 col-xs-offset-4 ">
+				<button id="reminderButton" class="btn btn-block btn-default">Remind me</button>
+			</div>
+		</div> -->
+</template>
+
+
+
+<template name="nogame">
+	<div class="col-xs-12">
+		<div class="row">
+			<h1 style="text-align: center; color: black; ">Nope</h1>
+		</div>
+		<div class="row">
+			<h4  style="text-align: center; color: black; "> {{{checkingDate}}}</h4>
+		</div>
+	</div>	
+	<div class="row">
+		<div class=col-xs-12>
+			<p class="lead" style="color: black; text-align: center;">Lot restrictions are as posted.</p>
+		</div>
+	</div>
+</template>
+
+<template name="checkDate">
+	<div class="row text-center">
+		<div class=col-xs-12>
+			<p class="lead">Need to know about a different date?</p>		
+		</div>
+	</div>
+	<div class="row">
+		<form class="check-date">
+		<div class="col-xs-6">
+				<input type="date" class="form-control" name="qDate">
+		</div>
+		<div class="col-xs-6">
+			<button type="submit" class="btn btn-block btn-default">Check Date</button>
+		<!--	<input type="submit" value="Go"> -->
+		</div>
+		</form>
+	</div>
+</template>

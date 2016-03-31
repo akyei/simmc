@@ -1,0 +1,13 @@
+{
+  "public": {
+
+  },
+
+  "TWILIO": {
+    "FROM": "+13018046060",
+    "SID": "ACfb9bc219e35a389b5e45bba619e27f09",
+    "TOKEN": "d3c4e9188666c1014feba5e3334a9d90"
+  }
+
+
+}

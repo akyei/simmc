@@ -1,0 +1,7 @@
+/* CSS declarations go here */
+.row-eq-height {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
